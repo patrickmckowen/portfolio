@@ -1,5 +1,4 @@
 {
-  "root": "nextjs-portfolio",
   "buildCommand": "npm run build",
   "installCommand": "npm install",
   "startCommand": "npm start"
