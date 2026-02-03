@@ -1,0 +1,162 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Custom Tiempos Headline font */
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('/fonts/TiemposHeadlineTest-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('/fonts/TiemposHeadlineTest-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('/fonts/TiemposHeadline-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: 'Tiempos Headline', Georgia, 'Times New Roman', serif;
+
+  /* Portfolio Design Tokens */
+  --color-surface: rgb(241 241 243);
+  --color-surface-elevated: rgb(250 250 250);
+  --color-dark-bg: rgb(23 26 28);
+  --color-dark-surface: rgb(32 30 35);
+
+  --color-text-primary: rgba(0 0 0 / 0.9);
+  --color-text-secondary: rgba(0 0 0 / 0.75);
+  --color-text-tertiary: rgba(0 0 0 / 0.5);
+
+  --color-text-primary-dark: rgba(255 255 255 / 0.9);
+  --color-text-secondary-dark: rgba(255 255 255 / 0.65);
+  --color-text-tertiary-dark: rgba(255 255 255 / 0.45);
+
+  --color-border-subtle: rgba(0 0 0 / 0.08);
+  --color-border-subtle-dark: rgba(255 255 255 / 0.1);
+
+  --color-card: rgba(241 241 243 / 0.45);
+  --color-card-hover: rgba(255 255 255 / 0.45);
+  --color-card-solid: rgb(242 242 243);
+
+  --color-link: rgb(0 153 255);
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: rgb(241 241 243);
+  --foreground: rgba(0 0 0 / 0.9);
+  --card: rgba(241 241 243 / 0.45);
+  --card-foreground: rgba(0 0 0 / 0.9);
+  --popover: rgb(255 255 255);
+  --popover-foreground: rgba(0 0 0 / 0.9);
+  --primary: rgba(0 0 0 / 0.9);
+  --primary-foreground: rgb(255 255 255);
+  --secondary: rgb(241 241 243);
+  --secondary-foreground: rgba(0 0 0 / 0.9);
+  --muted: rgb(241 241 243);
+  --muted-foreground: rgba(0 0 0 / 0.5);
+  --accent: rgba(241 241 243 / 0.45);
+  --accent-foreground: rgba(0 0 0 / 0.9);
+  --border: rgba(0 0 0 / 0.08);
+  --input: rgba(0 0 0 / 0.08);
+  --ring: rgba(0 0 0 / 0.2);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply text-foreground antialiased;
+    font-family: var(--font-geist-sans), system-ui, sans-serif;
+    background: rgb(241, 241, 243);
+  }
+}
+
+/* Gradient background */
+.gradient-bg {
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 40%, rgba(200, 180, 220, 0.4) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 80% 20%, rgba(255, 240, 200, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse 70% 50% at 60% 80%, rgba(180, 220, 230, 0.35) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 40% at 30% 90%, rgba(180, 230, 200, 0.3) 0%, transparent 50%),
+    rgb(241, 241, 243);
+  background-attachment: fixed;
+}
+
+/* Glassmorphism card styles */
+.glass-card {
+  background: rgba(241, 241, 243, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+/* Dark section styles */
+.dark-section {
+  background: rgb(23, 26, 28);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Typography */
+.font-serif {
+  font-family: 'Tiempos Headline', Georgia, 'Times New Roman', serif;
+  font-weight: 300;
+}
+
+/* Spring animation defaults */
+.spring-transition {
+  transition-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+/* Text balance utility */
+.text-balance {
+  text-wrap: balance;
+}
