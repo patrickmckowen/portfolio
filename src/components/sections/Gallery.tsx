@@ -28,13 +28,14 @@ const galleryItems = [
     span: "col-span-1 row-span-1",
     needsFrame: false,
   },
-  // Row 2, Col 2: Starcards - no device frame needed
+  // Row 2, Col 2: Starcards - no device frame needed, fills card edge to edge
   {
     type: "image" as const,
     src: "/images/gallery/Starcards.png",
     alt: "Starcards design",
     span: "col-span-1 row-span-1",
     needsFrame: false,
+    fillCard: true,
   },
   // Row 2-3, Col 3: Edit Photo video (tall, spans 2 rows) - needs iPhone frame
   {
@@ -133,7 +134,7 @@ export default function Gallery() {
                   src={item.src}
                   alt={item.alt}
                   fill
-                  className="object-contain"
+                  className={item.fillCard ? "object-cover" : "object-contain"}
                   sizes="(max-width: 768px) 50vw, 33vw"
                 />
               )}
