@@ -18,7 +18,6 @@ const springTransition = {
 
 export default function Navigation() {
   const [activeSection, setActiveSection] = useState("work");
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isOverDarkSection, setIsOverDarkSection] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
 
@@ -42,10 +41,9 @@ export default function Navigation() {
     setIsOverDarkSection(overDark);
   }, []);
 
-  // Handle scroll for header shrink and dark section detection
+  // Handle scroll for dark section detection
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
       checkDarkSection();
     };
 
@@ -212,12 +210,7 @@ export default function Navigation() {
       {/* Desktop: Fixed Header with Logo + Nav */}
       <motion.header
         ref={headerRef}
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: [0.33, 1, 0.68, 1] }}
-        className={`hidden md:flex fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? "py-4" : "py-6"
-        }`}
+        className="hidden md:flex fixed top-0 left-0 right-0 z-50 py-6"
       >
         <div className="max-w-[1200px] mx-auto flex justify-between items-center w-full">
           {/* Logo / Name */}
@@ -238,12 +231,7 @@ export default function Navigation() {
       </motion.header>
 
       {/* Mobile: Fixed Bottom Nav Bar */}
-      <motion.nav
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: [0.33, 1, 0.68, 1] }}
-        className="md:hidden fixed bottom-0 left-0 right-0 z-50 pb-5 px-6"
-      >
+      <motion.nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 pb-5 px-6">
         <div className="flex items-center justify-center gap-[10px]">
           {renderNavItems()}
         </div>
