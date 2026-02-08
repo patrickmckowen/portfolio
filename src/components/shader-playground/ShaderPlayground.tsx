@@ -57,9 +57,12 @@ const DEFAULT_UNIFORMS: ShaderUniforms = {
 }
 
 export default function ShaderPlayground() {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null)
   const materialRef = useRef<THREE.ShaderMaterial | null>(null)
+  const sceneRef = useRef<THREE.Scene | null>(null)
+  const cameraRef = useRef<THREE.OrthographicCamera | null>(null)
+  const geometryRef = useRef<THREE.PlaneGeometry | null>(null)
   const animFrameRef = useRef<number>(0)
   const mouseRef = useRef({ x: 0.5, y: 0.5 })
   const timeRef = useRef(0)
@@ -83,16 +86,25 @@ export default function ShaderPlayground() {
     pixelRatioRef.current = uniforms.pixelRatio
   }, [uniforms.paused, uniforms.pixelRatio])
 
-  // Initialize Three.js
+  // Initialize Three.js — handles Strict Mode double-mount
   useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
+    const container = containerRef.current
+    if (!container) return
+
+    // Create a new canvas each mount (Strict Mode safe)
+    const canvas = document.createElement("canvas")
+    canvas.style.display = "block"
+    canvas.style.width = "100%"
+    canvas.style.height = "100%"
+    container.appendChild(canvas)
 
     const renderer = new THREE.WebGLRenderer({ canvas, antialias: false })
     rendererRef.current = renderer
 
     const scene = new THREE.Scene()
+    sceneRef.current = scene
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1)
+    cameraRef.current = camera
 
     const material = new THREE.ShaderMaterial({
       vertexShader,
@@ -123,6 +135,7 @@ export default function ShaderPlayground() {
     materialRef.current = material
 
     const geometry = new THREE.PlaneGeometry(2, 2)
+    geometryRef.current = geometry
     const mesh = new THREE.Mesh(geometry, material)
     scene.add(mesh)
 
@@ -144,14 +157,15 @@ export default function ShaderPlayground() {
     window.addEventListener("resize", handleResize)
     window.addEventListener("mousemove", handleMouseMove)
 
+    // Reset time tracking for fresh mount
+    lastFrameRef.current = 0
+
     const animate = (timestamp: number) => {
       animFrameRef.current = requestAnimationFrame(animate)
 
       if (!lastFrameRef.current) lastFrameRef.current = timestamp
       const delta = (timestamp - lastFrameRef.current) / 1000
       lastFrameRef.current = timestamp
-
-      if (!material.uniforms) return
 
       if (!pausedRef.current) {
         timeRef.current += delta
@@ -172,6 +186,12 @@ export default function ShaderPlayground() {
       renderer.dispose()
       geometry.dispose()
       material.dispose()
+      rendererRef.current = null
+      materialRef.current = null
+      // Remove the canvas element we created
+      if (canvas.parentNode) {
+        canvas.parentNode.removeChild(canvas)
+      }
     }
   }, [])
 
@@ -212,10 +232,7 @@ export default function ShaderPlayground() {
 
   return (
     <div className="fixed inset-0 overflow-hidden bg-black">
-      <canvas
-        ref={canvasRef}
-        className="block w-full h-full"
-      />
+      <div ref={containerRef} className="w-full h-full" />
       <ControlPanel
         uniforms={uniforms}
         onUpdate={updateUniform}
