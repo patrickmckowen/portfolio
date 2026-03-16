@@ -50,22 +50,22 @@ export default function About() {
                 delay: index * 0.08,
                 ease: [0.33, 1, 0.68, 1],
               }}
-              className="space-y-3"
+              className="group space-y-2"
             >
               {/* Emoji Card */}
               <div className="aspect-square bg-[rgba(255,255,255,0.05)] rounded-2xl flex items-center justify-center text-5xl border border-[rgba(255,255,255,0.08)]">
                 {fact.emoji}
               </div>
 
-              {/* Label */}
-              <p className="text-[14px] text-[rgba(255,255,255,0.45)] font-mono">
-                {fact.label}
-              </p>
-
-              {/* Value */}
-              <p className="text-[16px] text-[rgba(255,255,255,0.9)] font-medium">
-                {fact.value}
-              </p>
+              {/* Caption with hover transition */}
+              <div className="h-[20px] overflow-hidden relative">
+                <p className="absolute inset-x-0 h-[20px] text-[14px] leading-[20px] text-[rgba(255,255,255,0.45)] font-mono transition-transform duration-300 ease-[cubic-bezier(0.33,1,0.68,1)] group-hover:translate-y-[20px]">
+                  {fact.label}
+                </p>
+                <p className="absolute inset-x-0 h-[20px] text-[14px] leading-[20px] text-[rgba(255,255,255,0.45)] font-mono transition-transform duration-300 ease-[cubic-bezier(0.33,1,0.68,1)] -translate-y-[20px] group-hover:translate-y-0">
+                  {fact.value}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>

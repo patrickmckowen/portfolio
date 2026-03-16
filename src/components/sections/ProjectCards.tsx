@@ -45,16 +45,16 @@ export default function ProjectCards() {
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover"
+                  className="object-cover rounded-lg"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
 
               {/* Info Section */}
               <div className="p-10 bg-[rgb(242,242,243)] border-t border-[rgba(0,0,0,0.08)]">
-                <div className="flex items-start gap-5 mb-5">
+                <div className="flex flex-col gap-3 mb-5">
                   {/* App Icon */}
-                  <div className="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0">
+                  <div className="w-8 h-8 rounded-[8px] overflow-hidden">
                     <Image
                       src={project.icon}
                       alt=""
