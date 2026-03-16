@@ -51,7 +51,7 @@ export default function WhatIOffer() {
                 delay: index * 0.08,
                 ease: [0.33, 1, 0.68, 1],
               }}
-              className="glass-card rounded-lg p-4 flex flex-col gap-8"
+              className="glass-card-static rounded-2xl p-4 flex flex-col gap-8"
             >
               <item.icon
                 className="w-6 h-6 text-[rgba(0,0,0,0.75)]"
