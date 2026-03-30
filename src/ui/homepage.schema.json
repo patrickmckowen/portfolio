@@ -17,7 +17,7 @@
 
     "page": {
       "type": "object",
-      "required": ["metadata", "regions", "sections"],
+      "required": ["metadata", "sections"],
       "additionalProperties": false,
       "properties": {
         "metadata": {
@@ -35,19 +35,6 @@
               }
             }
           }
-        },
-
-        "regions": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "required": ["id", "sections"],
-            "properties": {
-              "id": { "type": "string" },
-              "sections": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
-            }
-          },
-          "minItems": 1
         },
 
         "sections": {

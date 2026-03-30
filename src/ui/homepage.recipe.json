@@ -14,21 +14,6 @@
       }
     },
 
-    "regions": [
-      {
-        "id": "introduction",
-        "sections": ["navigation", "hero", "projectCards", "whatIOffer", "gallery", "testimonial"]
-      },
-      {
-        "id": "personal",
-        "sections": ["about", "background", "approach", "praise"]
-      },
-      {
-        "id": "closing",
-        "sections": ["contact", "footer"]
-      }
-    ],
-
     "sections": [
       {
         "id": "navigation",
