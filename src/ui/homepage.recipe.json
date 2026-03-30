@@ -1,0 +1,613 @@
+{
+  "$schema": "./homepage.schema.json",
+  "version": "1.0.0",
+  "name": "homepage",
+  "description": "Patrick McKowen portfolio homepage — declarative UI recipe",
+
+  "designTokens": {
+    "color": {
+      "surface": {
+        "base": "rgb(241 241 243)",
+        "elevated": "rgb(250 250 250)",
+        "card": "rgba(241 241 243 / 0.45)",
+        "cardHover": "rgba(255 255 255 / 0.45)",
+        "cardSolid": "rgb(242 242 243)"
+      },
+      "dark": {
+        "bg": "rgb(23 26 28)",
+        "surface": "rgb(32 30 35)"
+      },
+      "text": {
+        "primary": "rgba(0 0 0 / 0.9)",
+        "secondary": "rgba(0 0 0 / 0.75)",
+        "tertiary": "rgba(0 0 0 / 0.5)",
+        "primaryDark": "rgba(255 255 255 / 0.9)",
+        "secondaryDark": "rgba(255 255 255 / 0.65)",
+        "tertiaryDark": "rgba(255 255 255 / 0.45)"
+      },
+      "border": {
+        "subtle": "rgba(0 0 0 / 0.08)",
+        "subtleDark": "rgba(255 255 255 / 0.1)"
+      },
+      "accent": {
+        "link": "rgb(0 153 255)"
+      }
+    },
+    "typography": {
+      "fontFamilies": {
+        "serif": "'Tiempos Headline', Georgia, 'Times New Roman', serif",
+        "sans": "var(--font-geist-sans), system-ui, sans-serif",
+        "mono": "var(--font-geist-mono), monospace"
+      },
+      "fontWeights": {
+        "light": 300,
+        "regular": 400,
+        "medium": 500,
+        "semibold": 600,
+        "black": 900
+      },
+      "scale": {
+        "heroTitle": { "mobile": "56px", "tablet": "72px", "desktop": "88px", "lineHeight": "1.05", "letterSpacing": "-0.02em", "family": "serif", "weight": "light" },
+        "sectionTitle": { "mobile": "56px", "desktop": "72px", "lineHeight": "1.05", "letterSpacing": "-0.02em", "family": "serif", "weight": "light" },
+        "featureQuote": { "mobile": "40px", "desktop": "48px", "lineHeight": "1.15", "letterSpacing": "-0.02em", "family": "serif", "weight": "light" },
+        "cardTitle": { "size": "24px", "lineHeight": "1.35", "letterSpacing": "-0.02em", "family": "sans", "weight": "medium" },
+        "body": { "size": "18px", "lineHeight": "1.65", "family": "sans", "weight": "regular" },
+        "bodySmall": { "size": "16px", "lineHeight": "1.6", "family": "sans", "weight": "regular" },
+        "label": { "size": "20px", "letterSpacing": "-0.01em", "family": "sans", "weight": "regular" },
+        "caption": { "size": "14px", "lineHeight": "20px", "family": "mono", "weight": "regular" },
+        "small": { "size": "12px", "family": "mono", "weight": "regular" },
+        "button": { "size": "15px", "family": "sans", "weight": "medium" },
+        "nav": { "size": "14px", "family": "sans", "weight": "medium" }
+      }
+    },
+    "spacing": {
+      "sectionPaddingY": "128px",
+      "sectionPaddingX": "24px",
+      "containerMaxWidth": "1200px",
+      "narrowMaxWidth": "720px",
+      "heroMaxWidth": "1040px",
+      "gridGap": "16px",
+      "gridGapLarge": "48px"
+    },
+    "radius": {
+      "sm": "8px",
+      "md": "16px",
+      "lg": "24px"
+    },
+    "effects": {
+      "glassmorphism": {
+        "background": "rgba(241 241 243 / 0.45)",
+        "backdropBlur": "8px",
+        "border": "1px solid rgba(0 0 0 / 0.08)",
+        "shadow": "0px 1px 2px rgba(0 0 0 / 0.05)"
+      },
+      "glassmorphismStatic": {
+        "background": "rgba(241 241 243 / 0.6)",
+        "backdropBlur": "8px",
+        "border": "1px solid rgba(0 0 0 / 0.08)",
+        "shadow": "0px 1px 2px rgba(0 0 0 / 0.05)"
+      },
+      "gradientBackground": {
+        "layers": [
+          "radial-gradient(ellipse 80% 50% at 20% 40%, rgba(200 180 220 / 0.4) 0%, transparent 50%)",
+          "radial-gradient(ellipse 60% 40% at 80% 20%, rgba(255 240 200 / 0.3) 0%, transparent 50%)",
+          "radial-gradient(ellipse 70% 50% at 60% 80%, rgba(180 220 230 / 0.35) 0%, transparent 50%)",
+          "radial-gradient(ellipse 50% 40% at 30% 90%, rgba(180 230 200 / 0.3) 0%, transparent 50%)"
+        ],
+        "base": "rgb(241 241 243)",
+        "attachment": "fixed"
+      }
+    },
+    "animation": {
+      "easing": {
+        "spring": [0.33, 1, 0.68, 1]
+      },
+      "springPhysics": {
+        "stiffness": 500,
+        "damping": 60
+      },
+      "presets": {
+        "fadeUp": { "initial": { "opacity": 0, "y": 40 }, "animate": { "opacity": 1, "y": 0 }, "duration": 0.8 },
+        "fadeUpSmall": { "initial": { "opacity": 0, "y": 20 }, "animate": { "opacity": 1, "y": 0 }, "duration": 0.6 },
+        "fadeUpMedium": { "initial": { "opacity": 0, "y": 30 }, "animate": { "opacity": 1, "y": 0 }, "duration": 0.7 },
+        "scaleIn": { "initial": { "opacity": 0, "scale": 0.95 }, "animate": { "opacity": 1, "scale": 1 }, "duration": 0.7 },
+        "fadeIn": { "initial": { "opacity": 0 }, "animate": { "opacity": 1 }, "duration": 0.6 }
+      },
+      "stagger": {
+        "fast": 0.08,
+        "medium": 0.1,
+        "slow": 0.15
+      },
+      "viewportTrigger": {
+        "once": true
+      }
+    }
+  },
+
+  "componentRegistry": {
+    "Navigation": {
+      "component": "layout/Navigation",
+      "variant": "adaptive",
+      "behavior": {
+        "desktop": "fixed-top",
+        "mobile": "fixed-bottom",
+        "scrollDetection": "dark-section-aware",
+        "activeTracking": "scroll-position"
+      }
+    },
+    "SectionHeading": {
+      "variants": {
+        "light": { "typography": "sectionTitle", "color": "text.primary" },
+        "dark": { "typography": "sectionTitle", "color": "text.primaryDark" }
+      }
+    },
+    "GlassCard": {
+      "variants": {
+        "interactive": { "effect": "glassmorphism", "radius": "lg", "hoverLift": true },
+        "static": { "effect": "glassmorphismStatic", "radius": "md", "hoverLift": false }
+      }
+    },
+    "DarkSectionCard": {
+      "style": {
+        "background": "rgba(255 255 255 / 0.05)",
+        "border": "1px solid rgba(255 255 255 / 0.08)",
+        "radius": "md"
+      }
+    },
+    "PillButton": {
+      "variants": {
+        "light": {
+          "background": "white",
+          "border": "1px solid rgba(0 0 0 / 0.08)",
+          "color": "text.primary",
+          "radius": "full"
+        },
+        "dark": {
+          "background": "rgba(255 255 255 / 0.08)",
+          "border": "1px solid rgba(255 255 255 / 0.08)",
+          "color": "text.primaryDark",
+          "radius": "full"
+        }
+      }
+    }
+  },
+
+  "page": {
+    "metadata": {
+      "title": "Patrick McKowen \u00b7 Portfolio",
+      "description": "A digital product designer based in Oakland, CA with 10 years of experience working to uplift people with humane technology.",
+      "og": {
+        "title": "Patrick McKowen \u00b7 Portfolio",
+        "description": "A digital product designer based in Oakland, CA with 10 years of experience.",
+        "type": "website"
+      }
+    },
+
+    "regions": [
+      {
+        "id": "light-gradient",
+        "background": "gradientBackground",
+        "sections": ["navigation", "hero", "projectCards", "whatIOffer", "gallery", "testimonial"]
+      },
+      {
+        "id": "dark",
+        "background": "dark.bg",
+        "sections": ["about", "background", "approach", "praise"]
+      },
+      {
+        "id": "light-cta",
+        "background": "gradientBackground",
+        "sections": ["contact", "footer"]
+      }
+    ],
+
+    "sections": [
+      {
+        "id": "navigation",
+        "component": "Navigation",
+        "data": {
+          "logo": "Patrick McKowen",
+          "items": [
+            { "label": "Work", "href": "#work" },
+            { "label": "About", "href": "#about" },
+            { "label": "Contact", "href": "#contact" }
+          ]
+        },
+        "layout": {
+          "position": "fixed",
+          "zIndex": 50,
+          "desktop": { "position": "top", "maxWidth": "containerMaxWidth" },
+          "mobile": { "logo": "static-top", "nav": "fixed-bottom" }
+        }
+      },
+
+      {
+        "id": "hero",
+        "component": "Hero",
+        "theme": "light",
+        "animation": "fadeUp",
+        "animationDelay": 0.2,
+        "layout": {
+          "minHeight": "100vh",
+          "display": "flex",
+          "align": "center",
+          "justify": "center",
+          "maxWidth": "heroMaxWidth"
+        },
+        "content": {
+          "heading": {
+            "typography": "heroTitle",
+            "segments": [
+              { "text": "Hi there, I'm Patrick", "color": "text.primary" },
+              { "text": "\u2014", "color": "text.primary" },
+              { "text": "a product designer working to uplift people with humane technology.", "color": "text.tertiary" }
+            ]
+          }
+        }
+      },
+
+      {
+        "id": "projectCards",
+        "anchorId": "work",
+        "component": "ProjectCards",
+        "theme": "light",
+        "animation": "fadeUp",
+        "stagger": "slow",
+        "layout": {
+          "maxWidth": "containerMaxWidth",
+          "grid": { "columns": { "mobile": 1, "tablet": 2 }, "gap": "32px" }
+        },
+        "content": {
+          "items": [
+            {
+              "title": "Connecting brands and star creators with Cameo for Business.",
+              "link": "/cameo-licensing",
+              "image": "/images/projects/C4B Home thumb 4x3.png",
+              "imageAspect": "4/3",
+              "icon": "/images/projects/Cameo App Icon.png",
+              "cta": "View story"
+            },
+            {
+              "title": "Fundraising tools to change the world with JDRF International.",
+              "link": "/jdrf-fundraising",
+              "image": "/images/projects/Edit Story Thumb.png",
+              "imageAspect": "4/3",
+              "icon": "/images/projects/JDRF App Icon.png",
+              "cta": "View story"
+            }
+          ]
+        },
+        "cardStyle": "interactive-glass"
+      },
+
+      {
+        "id": "whatIOffer",
+        "component": "WhatIOffer",
+        "theme": "light",
+        "animation": "fadeUpSmall",
+        "stagger": "fast",
+        "layout": {
+          "maxWidth": "containerMaxWidth",
+          "grid": { "columns": { "mobile": 2, "tablet": 4 }, "gap": "gridGap" }
+        },
+        "content": {
+          "heading": { "text": "What I offer", "typography": "sectionTitle", "align": "center" },
+          "items": [
+            { "icon": "Compass", "label": "Strategy" },
+            { "icon": "Palette", "label": "Visual Design" },
+            { "icon": "MousePointer", "label": "Prototyping" },
+            { "icon": "Map", "label": "UX Design" },
+            { "icon": "Beaker", "label": "0-to-1 Projects" },
+            { "icon": "MessageSquare", "label": "User Research" },
+            { "icon": "Users", "label": "Mentoring" },
+            { "icon": "BookOpen", "label": "Design Systems" }
+          ]
+        },
+        "cardStyle": "static-glass"
+      },
+
+      {
+        "id": "gallery",
+        "component": "Gallery",
+        "theme": "light",
+        "animation": "scaleIn",
+        "stagger": "medium",
+        "layout": {
+          "maxWidth": "containerMaxWidth",
+          "grid": {
+            "columns": { "mobile": 2, "tablet": 3 },
+            "gap": "gridGap",
+            "autoRows": { "mobile": "200px", "tablet": "280px" }
+          }
+        },
+        "content": {
+          "heading": { "text": "Gallery of recent work", "typography": "sectionTitle", "align": "center" },
+          "items": [
+            { "type": "video", "src": "/images/gallery/Saige Audio.mp4", "alt": "Saige audio interaction", "span": "col-1 row-2", "frame": "iphone" },
+            { "type": "image", "src": "/images/gallery/Saige.png", "alt": "Saige app design", "span": "col-1 row-1", "frame": "none" },
+            { "type": "image", "src": "/images/gallery/List Nav.png", "alt": "List navigation design", "span": "col-1 row-1", "frame": "none" },
+            { "type": "image", "src": "/images/gallery/Starcards.png", "alt": "Starcards design", "span": "col-1 row-1", "frame": "none", "fill": true },
+            { "type": "video", "src": "/images/gallery/Edit Photo.mp4", "alt": "Edit photo interaction", "span": "col-1 row-2", "frame": "iphone" },
+            { "type": "image", "src": "/images/gallery/Add to list.png", "alt": "Add to list interaction", "span": "col-1 row-1", "frame": "none" },
+            { "type": "image", "src": "/images/gallery/Training.png", "alt": "Training app design", "span": "col-1 row-1", "frame": "none" }
+          ]
+        },
+        "cardStyle": "static-glass"
+      },
+
+      {
+        "id": "testimonial",
+        "component": "Testimonial",
+        "theme": "light",
+        "animation": "fadeUpMedium",
+        "layout": {
+          "maxWidth": "narrowMaxWidth",
+          "align": "center"
+        },
+        "content": {
+          "quoteMark": { "size": "80px", "color": "rgba(0 0 0 / 0.15)" },
+          "quote": {
+            "text": "Patrick helped elevate the work of everyone around him.",
+            "typography": "featureQuote"
+          },
+          "attribution": {
+            "text": "VP of Design, Cameo",
+            "typography": "body",
+            "color": "text.tertiary"
+          }
+        }
+      },
+
+      {
+        "id": "about",
+        "anchorId": "about",
+        "component": "About",
+        "theme": "dark",
+        "animation": "fadeUpSmall",
+        "stagger": "fast",
+        "layout": {
+          "maxWidth": "containerMaxWidth",
+          "grid": { "columns": { "mobile": 2, "tablet": 4 }, "gap": "gridGap" }
+        },
+        "content": {
+          "heading": { "text": "About", "typography": "sectionTitle" },
+          "intro": {
+            "segments": [
+              { "text": "Hey, I'm Patrick.", "emphasis": true },
+              { "text": " A digital product designer based in Oakland, CA with 10 years of experience.", "emphasis": false }
+            ]
+          },
+          "facts": [
+            { "label": "My better half and I", "value": "My wife Alena", "emoji": "\ud83d\udc6b" },
+            { "label": "Hometown", "value": "Palo Alto, CA", "emoji": "\ud83c\udf33" },
+            { "label": "Current town", "value": "Oakland, CA", "emoji": "\ud83c\udf34" },
+            { "label": "Favorite town", "value": "New York City", "emoji": "\ud83d\uddfd" },
+            { "label": "Favorite musician", "value": "Frank Ocean", "emoji": "\ud83c\udfb5" },
+            { "label": "Favorite show", "value": "Parts Unknown", "emoji": "\ud83c\udfac" },
+            { "label": "Favorite filmmaker", "value": "Stanley Kubrick", "emoji": "\ud83c\udfa5" },
+            { "label": "Favorite cuisine", "value": "Southeast Asian", "emoji": "\ud83c\udf5c" }
+          ]
+        },
+        "interactions": {
+          "factCards": { "hover": "label-value-swap", "direction": "vertical" }
+        }
+      },
+
+      {
+        "id": "background",
+        "component": "Background",
+        "theme": "dark",
+        "animation": "fadeUpSmall",
+        "layout": {
+          "maxWidth": "narrowMaxWidth"
+        },
+        "content": {
+          "heading": { "text": "Background", "typography": "sectionTitle" },
+          "paragraphs": [
+            {
+              "segments": [
+                { "text": "I'm a self-taught designer with an insatiable curiosity about people and technology.", "emphasis": true },
+                { "text": " I have business acumen, use system thinking to solve ambiguous problems, and find joy in the pursuit of craft.", "emphasis": false }
+              ]
+            },
+            { "text": "Most recently, I led design on a new B2B marketing platform for the unicorn startup Cameo. I also led their design system team and helped with the creator app." },
+            { "text": "Previously, I established the first design and product management teams at JDRF, a fundraising and support organization for Type 1 Diabetes. I served in a player-coach role, designing their consumer products while managing a group of designers and product managers." },
+            { "text": "I'm a life-long learner, currently learning new prototyping tools (Origami Studio, Rive), code (SwiftUI, React), and how to be more productive with generative AI." }
+          ],
+          "links": [
+            { "label": "Resume", "url": "https://www.read.cv/patrickmckowen", "icon": "ExternalLink", "external": true },
+            { "label": "LinkedIn", "url": "https://www.linkedin.com/in/pmckowen/", "icon": "ExternalLink", "external": true }
+          ]
+        }
+      },
+
+      {
+        "id": "approach",
+        "component": "Approach",
+        "theme": "dark",
+        "animation": "fadeUpSmall",
+        "stagger": "medium",
+        "layout": {
+          "maxWidth": "containerMaxWidth",
+          "grid": { "columns": { "mobile": 1, "tablet": 2, "desktop": 3 }, "gap": "gridGapLarge" }
+        },
+        "content": {
+          "heading": { "text": "Approach", "typography": "sectionTitle" },
+          "principles": [
+            { "number": "01", "title": "Start together.", "description": "Products are best created collaboratively, with iterative feedback from teammates." },
+            { "number": "02", "title": "Talk to customers.", "description": "The best way to find product-market-fit is to deeply understand the people you are building for." },
+            { "number": "03", "title": "Think in systems.", "description": "Understanding the big picture helps to design solutions that address the root problem." },
+            { "number": "04", "title": "Tackle risks early.", "description": "Discover asap if customers find your idea valuable and usable, if it's feasible to build, and viable to maintain." },
+            { "number": "05", "title": "Focus on impact.", "description": "It's not about implementing features, it's about solving problems for people and delivering measurable results." },
+            { "number": "06", "title": "Stay curious.", "description": "Continuous learning, and keeping an open mind, are the foundational elements for growth." }
+          ]
+        }
+      },
+
+      {
+        "id": "praise",
+        "component": "Praise",
+        "theme": "dark",
+        "animation": "fadeUpSmall",
+        "stagger": "medium",
+        "layout": {
+          "maxWidth": "containerMaxWidth",
+          "grid": { "columns": { "mobile": 1, "tablet": 2 }, "gap": "gridGapLarge" }
+        },
+        "content": {
+          "heading": { "text": "Praise", "typography": "sectionTitle" },
+          "testimonials": [
+            {
+              "quote": "Patrick helped elevate the work of everyone around him.",
+              "highlight": "His thoughtful approach to design and exceptional communication skills made complex projects feel simple.",
+              "name": "Jason Culbertson",
+              "title": "VP of Design"
+            },
+            {
+              "quote": "Patrick's deep commitment to understanding our customers led to some of our most valuable insights, and",
+              "highlight": "his collaborative spirit makes him a joy to work with.",
+              "name": "Prajit Gopal",
+              "title": "Head of Product"
+            },
+            {
+              "quote": "Patrick's ability to connect the dots across multiple projects",
+              "highlight": "and deliver thoughtful, impactful results makes him an invaluable asset to any team.",
+              "name": "Nikki Bodnar",
+              "title": "VP of Design"
+            },
+            {
+              "quote": "I learned so much from Patrick's design process;",
+              "highlight": "he really made me a better designer.",
+              "description": "He also gives the best feedback on projects.",
+              "name": "Colin Zyrek",
+              "title": "Senior Product Designer"
+            },
+            {
+              "quote": "Patrick is unnaturally good at asking first-principle questions",
+              "highlight": "to ensure his team are on the right path. He is an incredible designer, a diligent student of product development, and a wonderful human being.",
+              "name": "Prescott Rynewicz",
+              "title": "Engineering Manager"
+            },
+            {
+              "quote": "Patrick is a skilled designer who asks thoughtful questions, leads with grace, and always has valuable critique to offer.",
+              "highlight": "He chases excellence in all that he does and makes everyone around him better.",
+              "name": "Ali Forrest",
+              "title": "Content Designer"
+            }
+          ]
+        }
+      },
+
+      {
+        "id": "contact",
+        "anchorId": "contact",
+        "component": "Contact",
+        "theme": "light",
+        "animation": "scaleIn",
+        "layout": {
+          "minHeight": "100vh",
+          "display": "flex",
+          "align": "center",
+          "justify": "center",
+          "maxWidth": "560px"
+        },
+        "content": {
+          "heading": { "text": "Contact", "typography": "sectionTitle" },
+          "body": {
+            "text": "Interested in working together? Send me an email at",
+            "inlineLink": { "text": "patrick.mckowen@gmail.com", "href": "mailto:patrick.mckowen@gmail.com" }
+          },
+          "actions": [
+            { "label": "Email", "icon": "Mail", "href": "mailto:patrick.mckowen@gmail.com", "style": "pill-light" },
+            { "label": "LinkedIn", "icon": "Linkedin", "href": "https://www.linkedin.com/in/pmckowen/", "style": "pill-light", "external": true }
+          ]
+        },
+        "cardStyle": "interactive-glass"
+      },
+
+      {
+        "id": "footer",
+        "component": "Footer",
+        "theme": "light",
+        "animation": "fadeIn",
+        "layout": {
+          "align": "center"
+        },
+        "content": {
+          "emoji": "\u270d\ufe0f",
+          "signOff": "Thanks for stopping by!",
+          "copyright": "\u00a9 {{year}} Patrick McKowen"
+        }
+      }
+    ]
+  },
+
+  "rules": {
+    "_comment": "Validation rules for linting AI-generated UI against this recipe",
+
+    "structure": {
+      "sectionOrder": ["navigation", "hero", "projectCards", "whatIOffer", "gallery", "testimonial", "about", "background", "approach", "praise", "contact", "footer"],
+      "requiredSections": ["navigation", "hero", "projectCards", "contact", "footer"],
+      "regionThemes": {
+        "light-gradient": { "background": "gradientBackground", "textColor": "text.primary" },
+        "dark": { "background": "dark.bg", "textColor": "text.primaryDark", "cssClass": "dark-section" },
+        "light-cta": { "background": "gradientBackground", "textColor": "text.primary" }
+      }
+    },
+
+    "typography": {
+      "headingsMustUse": "serif",
+      "bodyMustUse": "sans",
+      "captionsMustUse": "mono",
+      "maxHeroSize": "88px",
+      "minBodySize": "14px",
+      "darkSectionTextPrimary": "rgba(255 255 255 / 0.9)",
+      "lightSectionTextPrimary": "rgba(0 0 0 / 0.9)"
+    },
+
+    "animation": {
+      "allSectionsAnimate": true,
+      "viewportTriggered": true,
+      "onceOnly": true,
+      "allowedEasings": [[0.33, 1, 0.68, 1]],
+      "maxDuration": 0.8,
+      "staggeredCollections": ["projectCards", "whatIOffer", "gallery", "about", "approach", "praise"]
+    },
+
+    "layout": {
+      "maxContentWidth": "1200px",
+      "narrowContentWidth": "720px",
+      "sectionPaddingY": "128px",
+      "sectionPaddingX": "24px",
+      "mobileFirst": true,
+      "responsiveBreakpoints": { "mobile": "0px", "tablet": "768px", "desktop": "1024px" }
+    },
+
+    "components": {
+      "cardsInLightSections": "glass-card or glass-card-static",
+      "cardsInDarkSections": "dark-section-card",
+      "buttonsUsePillShape": true,
+      "iconsFrom": "lucide-react",
+      "iconStrokeWidth": 1.5,
+      "imagesUseNextImage": true,
+      "videosAutoplay": true,
+      "videosMuted": true,
+      "videosLoop": true
+    },
+
+    "accessibility": {
+      "allImagesHaveAlt": true,
+      "externalLinksHaveRel": "noopener noreferrer",
+      "externalLinksOpenNewTab": true,
+      "smoothScrollEnabled": true,
+      "reducedMotionRespected": true
+    },
+
+    "colorContrast": {
+      "primaryOnLight": { "foreground": "rgba(0 0 0 / 0.9)", "background": "rgb(241 241 243)", "minRatio": 4.5 },
+      "primaryOnDark": { "foreground": "rgba(255 255 255 / 0.9)", "background": "rgb(23 26 28)", "minRatio": 4.5 },
+      "secondaryOnDark": { "foreground": "rgba(255 255 255 / 0.65)", "background": "rgb(23 26 28)", "minRatio": 3.0 },
+      "tertiaryOnLight": { "foreground": "rgba(0 0 0 / 0.5)", "background": "rgb(241 241 243)", "minRatio": 3.0 }
+    }
+  }
+}

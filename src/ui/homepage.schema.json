@@ -1,0 +1,374 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "homepage.schema.json",
+  "title": "Homepage UI Recipe",
+  "description": "JSON Schema for validating the declarative homepage UI recipe. Enforces design system rules, content structure, and component contracts so AI agents can build and modify UI with confidence.",
+  "type": "object",
+  "required": ["version", "name", "designTokens", "componentRegistry", "page", "rules"],
+  "additionalProperties": false,
+
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semantic version of the recipe"
+    },
+    "name": { "type": "string" },
+    "description": { "type": "string" },
+
+    "designTokens": {
+      "type": "object",
+      "required": ["color", "typography", "spacing", "radius", "effects", "animation"],
+      "additionalProperties": false,
+      "properties": {
+        "color": {
+          "type": "object",
+          "required": ["surface", "dark", "text", "border", "accent"],
+          "properties": {
+            "surface": {
+              "type": "object",
+              "required": ["base", "elevated", "card", "cardHover", "cardSolid"],
+              "properties": {
+                "base": { "$ref": "#/$defs/cssColor" },
+                "elevated": { "$ref": "#/$defs/cssColor" },
+                "card": { "$ref": "#/$defs/cssColor" },
+                "cardHover": { "$ref": "#/$defs/cssColor" },
+                "cardSolid": { "$ref": "#/$defs/cssColor" }
+              }
+            },
+            "dark": {
+              "type": "object",
+              "required": ["bg", "surface"],
+              "properties": {
+                "bg": { "$ref": "#/$defs/cssColor" },
+                "surface": { "$ref": "#/$defs/cssColor" }
+              }
+            },
+            "text": {
+              "type": "object",
+              "required": ["primary", "secondary", "tertiary", "primaryDark", "secondaryDark", "tertiaryDark"],
+              "properties": {
+                "primary": { "$ref": "#/$defs/cssColor" },
+                "secondary": { "$ref": "#/$defs/cssColor" },
+                "tertiary": { "$ref": "#/$defs/cssColor" },
+                "primaryDark": { "$ref": "#/$defs/cssColor" },
+                "secondaryDark": { "$ref": "#/$defs/cssColor" },
+                "tertiaryDark": { "$ref": "#/$defs/cssColor" }
+              }
+            },
+            "border": {
+              "type": "object",
+              "required": ["subtle", "subtleDark"],
+              "properties": {
+                "subtle": { "$ref": "#/$defs/cssColor" },
+                "subtleDark": { "$ref": "#/$defs/cssColor" }
+              }
+            },
+            "accent": {
+              "type": "object",
+              "required": ["link"],
+              "properties": {
+                "link": { "$ref": "#/$defs/cssColor" }
+              }
+            }
+          }
+        },
+        "typography": {
+          "type": "object",
+          "required": ["fontFamilies", "fontWeights", "scale"],
+          "properties": {
+            "fontFamilies": {
+              "type": "object",
+              "required": ["serif", "sans", "mono"],
+              "properties": {
+                "serif": { "type": "string" },
+                "sans": { "type": "string" },
+                "mono": { "type": "string" }
+              }
+            },
+            "fontWeights": {
+              "type": "object",
+              "additionalProperties": { "type": "integer", "minimum": 100, "maximum": 900 }
+            },
+            "scale": {
+              "type": "object",
+              "additionalProperties": { "$ref": "#/$defs/typographyStyle" }
+            }
+          }
+        },
+        "spacing": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/$defs/cssLength" }
+        },
+        "radius": {
+          "type": "object",
+          "required": ["sm", "md", "lg"],
+          "properties": {
+            "sm": { "$ref": "#/$defs/cssLength" },
+            "md": { "$ref": "#/$defs/cssLength" },
+            "lg": { "$ref": "#/$defs/cssLength" }
+          }
+        },
+        "effects": {
+          "type": "object",
+          "properties": {
+            "glassmorphism": { "$ref": "#/$defs/effectStyle" },
+            "glassmorphismStatic": { "$ref": "#/$defs/effectStyle" },
+            "gradientBackground": {
+              "type": "object",
+              "required": ["layers", "base"],
+              "properties": {
+                "layers": { "type": "array", "items": { "type": "string" } },
+                "base": { "$ref": "#/$defs/cssColor" },
+                "attachment": { "type": "string", "enum": ["fixed", "scroll"] }
+              }
+            }
+          }
+        },
+        "animation": {
+          "type": "object",
+          "required": ["easing", "presets"],
+          "properties": {
+            "easing": {
+              "type": "object",
+              "properties": {
+                "spring": { "$ref": "#/$defs/cubicBezier" }
+              }
+            },
+            "springPhysics": {
+              "type": "object",
+              "properties": {
+                "stiffness": { "type": "number" },
+                "damping": { "type": "number" }
+              }
+            },
+            "presets": {
+              "type": "object",
+              "additionalProperties": { "$ref": "#/$defs/animationPreset" }
+            },
+            "stagger": {
+              "type": "object",
+              "additionalProperties": { "type": "number", "minimum": 0 }
+            },
+            "viewportTrigger": {
+              "type": "object",
+              "properties": {
+                "once": { "type": "boolean" }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "componentRegistry": {
+      "type": "object",
+      "description": "Available components and their variant contracts",
+      "additionalProperties": {
+        "type": "object"
+      }
+    },
+
+    "page": {
+      "type": "object",
+      "required": ["metadata", "regions", "sections"],
+      "properties": {
+        "metadata": {
+          "type": "object",
+          "required": ["title", "description"],
+          "properties": {
+            "title": { "type": "string" },
+            "description": { "type": "string" },
+            "og": {
+              "type": "object",
+              "properties": {
+                "title": { "type": "string" },
+                "description": { "type": "string" },
+                "type": { "type": "string" }
+              }
+            }
+          }
+        },
+        "regions": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/region" },
+          "minItems": 1
+        },
+        "sections": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/section" },
+          "minItems": 1
+        }
+      }
+    },
+
+    "rules": {
+      "type": "object",
+      "description": "Validation rules for linting. Agents and CI can programmatically check components against these constraints.",
+      "properties": {
+        "_comment": { "type": "string" },
+        "structure": {
+          "type": "object",
+          "properties": {
+            "sectionOrder": { "type": "array", "items": { "type": "string" } },
+            "requiredSections": { "type": "array", "items": { "type": "string" } },
+            "regionThemes": { "type": "object" }
+          }
+        },
+        "typography": {
+          "type": "object",
+          "properties": {
+            "headingsMustUse": { "type": "string" },
+            "bodyMustUse": { "type": "string" },
+            "captionsMustUse": { "type": "string" },
+            "maxHeroSize": { "$ref": "#/$defs/cssLength" },
+            "minBodySize": { "$ref": "#/$defs/cssLength" },
+            "darkSectionTextPrimary": { "$ref": "#/$defs/cssColor" },
+            "lightSectionTextPrimary": { "$ref": "#/$defs/cssColor" }
+          }
+        },
+        "animation": {
+          "type": "object",
+          "properties": {
+            "allSectionsAnimate": { "type": "boolean" },
+            "viewportTriggered": { "type": "boolean" },
+            "onceOnly": { "type": "boolean" },
+            "allowedEasings": { "type": "array", "items": { "$ref": "#/$defs/cubicBezier" } },
+            "maxDuration": { "type": "number" },
+            "staggeredCollections": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "layout": {
+          "type": "object",
+          "properties": {
+            "maxContentWidth": { "$ref": "#/$defs/cssLength" },
+            "narrowContentWidth": { "$ref": "#/$defs/cssLength" },
+            "sectionPaddingY": { "$ref": "#/$defs/cssLength" },
+            "sectionPaddingX": { "$ref": "#/$defs/cssLength" },
+            "mobileFirst": { "type": "boolean" },
+            "responsiveBreakpoints": { "type": "object", "additionalProperties": { "$ref": "#/$defs/cssLength" } }
+          }
+        },
+        "components": {
+          "type": "object",
+          "properties": {
+            "cardsInLightSections": { "type": "string" },
+            "cardsInDarkSections": { "type": "string" },
+            "buttonsUsePillShape": { "type": "boolean" },
+            "iconsFrom": { "type": "string" },
+            "iconStrokeWidth": { "type": "number" },
+            "imagesUseNextImage": { "type": "boolean" },
+            "videosAutoplay": { "type": "boolean" },
+            "videosMuted": { "type": "boolean" },
+            "videosLoop": { "type": "boolean" }
+          }
+        },
+        "accessibility": {
+          "type": "object",
+          "properties": {
+            "allImagesHaveAlt": { "type": "boolean" },
+            "externalLinksHaveRel": { "type": "string" },
+            "externalLinksOpenNewTab": { "type": "boolean" },
+            "smoothScrollEnabled": { "type": "boolean" },
+            "reducedMotionRespected": { "type": "boolean" }
+          }
+        },
+        "colorContrast": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["foreground", "background", "minRatio"],
+            "properties": {
+              "foreground": { "$ref": "#/$defs/cssColor" },
+              "background": { "$ref": "#/$defs/cssColor" },
+              "minRatio": { "type": "number", "minimum": 1 }
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "$defs": {
+    "cssColor": {
+      "type": "string",
+      "description": "CSS color value (rgb, rgba, hex, named)"
+    },
+    "cssLength": {
+      "type": "string",
+      "pattern": "^-?\\d+(\\.\\d+)?(px|rem|em|vh|vw|%)$",
+      "description": "CSS length value"
+    },
+    "cubicBezier": {
+      "type": "array",
+      "items": { "type": "number" },
+      "minItems": 4,
+      "maxItems": 4,
+      "description": "Cubic bezier easing [x1, y1, x2, y2]"
+    },
+    "typographyStyle": {
+      "type": "object",
+      "description": "A typography scale entry",
+      "properties": {
+        "size": { "type": "string" },
+        "mobile": { "type": "string" },
+        "tablet": { "type": "string" },
+        "desktop": { "type": "string" },
+        "lineHeight": { "type": "string" },
+        "letterSpacing": { "type": "string" },
+        "family": { "type": "string", "enum": ["serif", "sans", "mono"] },
+        "weight": { "type": "string" }
+      }
+    },
+    "effectStyle": {
+      "type": "object",
+      "properties": {
+        "background": { "$ref": "#/$defs/cssColor" },
+        "backdropBlur": { "type": "string" },
+        "border": { "type": "string" },
+        "shadow": { "type": "string" }
+      }
+    },
+    "animationPreset": {
+      "type": "object",
+      "required": ["initial", "animate", "duration"],
+      "properties": {
+        "initial": { "type": "object" },
+        "animate": { "type": "object" },
+        "duration": { "type": "number", "maximum": 2 }
+      }
+    },
+    "region": {
+      "type": "object",
+      "required": ["id", "sections"],
+      "properties": {
+        "id": { "type": "string" },
+        "background": { "type": "string" },
+        "sections": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1
+        }
+      }
+    },
+    "section": {
+      "type": "object",
+      "required": ["id", "component"],
+      "properties": {
+        "id": { "type": "string" },
+        "anchorId": { "type": "string", "description": "HTML id for scroll navigation" },
+        "component": { "type": "string", "description": "Component name from the registry" },
+        "theme": { "type": "string", "enum": ["light", "dark"] },
+        "animation": { "type": "string", "description": "Reference to animation preset name" },
+        "animationDelay": { "type": "number" },
+        "stagger": { "type": "string", "enum": ["fast", "medium", "slow"] },
+        "layout": { "type": "object" },
+        "content": { "type": "object", "description": "Section-specific content data" },
+        "data": { "type": "object", "description": "Section-specific config data" },
+        "cardStyle": { "type": "string", "enum": ["interactive-glass", "static-glass", "dark-card"] },
+        "interactions": { "type": "object" }
+      }
+    }
+  }
+}
