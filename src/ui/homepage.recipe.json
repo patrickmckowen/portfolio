@@ -16,18 +16,15 @@
 
     "regions": [
       {
-        "id": "light-top",
-        "theme": "light",
+        "id": "introduction",
         "sections": ["navigation", "hero", "projectCards", "whatIOffer", "gallery", "testimonial"]
       },
       {
-        "id": "dark-middle",
-        "theme": "dark",
+        "id": "personal",
         "sections": ["about", "background", "approach", "praise"]
       },
       {
-        "id": "light-bottom",
-        "theme": "light",
+        "id": "closing",
         "sections": ["contact", "footer"]
       }
     ],

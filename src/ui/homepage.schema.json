@@ -41,10 +41,9 @@
           "type": "array",
           "items": {
             "type": "object",
-            "required": ["id", "theme", "sections"],
+            "required": ["id", "sections"],
             "properties": {
               "id": { "type": "string" },
-              "theme": { "type": "string", "enum": ["light", "dark"] },
               "sections": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
             }
           },
