@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "homepage.schema.json",
+  "title": "Homepage UI Recipe",
+  "description": "Schema for validating the homepage content and structure recipe. Focuses on what exists on the page — not how it looks.",
+  "type": "object",
+  "required": ["version", "name", "page"],
+  "additionalProperties": false,
+
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "name": { "type": "string" },
+    "description": { "type": "string" },
+
+    "page": {
+      "type": "object",
+      "required": ["metadata", "sections"],
+      "additionalProperties": false,
+      "properties": {
+        "metadata": {
+          "type": "object",
+          "required": ["title", "description"],
+          "properties": {
+            "title": { "type": "string" },
+            "description": { "type": "string" },
+            "og": {
+              "type": "object",
+              "properties": {
+                "title": { "type": "string" },
+                "description": { "type": "string" },
+                "type": { "type": "string" }
+              }
+            }
+          }
+        },
+
+        "sections": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/section" },
+          "minItems": 1
+        }
+      }
+    }
+  },
+
+  "$defs": {
+    "section": {
+      "type": "object",
+      "required": ["id", "type", "content"],
+      "properties": {
+        "id": { "type": "string" },
+        "type": {
+          "type": "string",
+          "enum": ["navigation", "hero", "card-grid", "icon-grid", "media-grid", "quote", "profile", "narrative", "numbered-list", "testimonial-grid", "cta", "footer"]
+        },
+        "anchorId": { "type": "string" },
+        "content": { "type": "object" }
+      }
+    },
+
+    "textSegment": {
+      "type": "object",
+      "required": ["text"],
+      "properties": {
+        "text": { "type": "string" },
+        "emphasis": { "type": "string", "enum": ["strong", "muted", "default"] }
+      }
+    },
+
+    "link": {
+      "type": "object",
+      "required": ["label"],
+      "properties": {
+        "label": { "type": "string" },
+        "href": { "type": "string" },
+        "url": { "type": "string" },
+        "external": { "type": "boolean" }
+      }
+    },
+
+    "mediaItem": {
+      "type": "object",
+      "required": ["type", "src", "alt"],
+      "properties": {
+        "type": { "type": "string", "enum": ["image", "video"] },
+        "src": { "type": "string" },
+        "alt": { "type": "string" },
+        "span": { "type": "string" },
+        "frame": { "type": "string", "enum": ["iphone", "none"] },
+        "fill": { "type": "boolean" }
+      }
+    }
+  }
+}
