@@ -1,0 +1,107 @@
+{
+  "_about": "Testimonials for Patrick McKowen. 'site_quote' is the short pull-quote shown in the Praise section of patrickmckowen.com, with 'site_highlight' as the phrase set in bold/white there (null if not captured). 'linkedin_full' is the full recommendation text from LinkedIn (captured 2026-11-22), or null if the person has no LinkedIn recommendation. Use site_quote for cards and linkedin_full when you need a longer quote or a different excerpt.",
+  "testimonials": [
+    {
+      "name": "Jason Culbertson",
+      "title_on_site": "VP of Design",
+      "company": "Cameo",
+      "relationship": "Managed Patrick directly",
+      "date": "2024-02-13",
+      "featured": true,
+      "featured_note": "Also used as the single featured testimonial between Gallery and About on the homepage: 'Patrick helped elevate the work of everyone around him.' / VP of Design, Cameo",
+      "site_quote": "Patrick helped elevate the work of everyone around him. His thoughtful approach to design and exceptional communication skills made complex projects feel simple.",
+      "site_highlight": "Patrick helped elevate the work of everyone around him.",
+      "linkedin_full": "Working with Patrick was one of the highlights of my time at Cameo. His thoughtful approach to design and exceptional communication skills made complex projects feel simple. Patrick's contributions, particularly in developing the Cameo Design System and leading design for Cameo for Business, were critical to both the company and the design team. He has a knack for detailed, clear documentation and a deep understanding of user needs, making him an invaluable contributor to the product organization.\n\nPatrick also helped elevate the work of everyone around him. He provided mentorship to others as well as support to his cross-functional peers while balancing perfection with practicality under tight deadlines. I wholeheartedly recommend Patrick for any organization looking to improve their design capabilities and team.",
+      "themes": ["design systems", "communication", "documentation", "mentorship", "leadership", "pragmatism"]
+    },
+    {
+      "name": "Prajit Gopal",
+      "title_on_site": "Head of Product",
+      "company": "Cameo (Cameo for Business)",
+      "current_title_linkedin": "Product @ Adobe GenStudio | CS Masters @ UPenn | Forbes U30",
+      "relationship": "Worked on the same team",
+      "date": "2023-12-22",
+      "site_quote": "Patrick's deep commitment to understanding our customers led to some of our most valuable insights, and his collaborative spirit makes him a joy to work with.",
+      "site_highlight": "his collaborative spirit makes him a joy to work with.",
+      "linkedin_full": "I had the pleasure of working with Patrick at Cameo for Business, where his exceptional skills as product designer were an invaluable asset to our product team. As Head of Product, I was very lucky to have Patrick as a partner for all of our product discovery work. Patrick's deep commitment to understanding our customers and stakeholders was evident in his diligent efforts to regularly review market research, customer interviews, and any other resources he could get his hands on. His keen analysis frequently led to some of our most valuable and actionable insights.\n\nPatrick has a meticulous attention to detail, both in writing requirements and in executing designs. He has an ability to maintain precision while understanding the necessity of trade-offs to meet deadlines. Beyond his professional capabilities, Patrick's collaborative spirit makes him a joy to work with.\n\nPatrick’s blend of rigorous analysis, attention to detail, and team-oriented approach truly sets him apart. I wholeheartedly recommend Patrick to any organization looking to take their design team to the next level.",
+      "themes": ["customer insight", "product discovery", "detail", "collaboration"]
+    },
+    {
+      "name": "Ismael Touré",
+      "title_on_site": "Lead Product Designer",
+      "company": null,
+      "site_quote": "Patrick takes a creative yet analytical approach to solving difficult problems, and is kind, patient, and pays close attention to detail.",
+      "site_highlight": "Patrick takes a creative yet analytical approach to solving difficult problems",
+      "linkedin_full": null,
+      "themes": ["problem solving", "kindness", "detail"]
+    },
+    {
+      "name": "Nikki Bodnar",
+      "title_on_site": "VP of Design",
+      "company": "JDRF",
+      "current_title_linkedin": "Senior Vice President, Marketing Services @ Breakthrough T1D | Communication Design",
+      "relationship": "Managed Patrick directly",
+      "date": "2024-01-04",
+      "linkedin_visibility_note": "This recommendation's visibility toggle showed 'Off' on LinkedIn. Check with Patrick before quoting the long version.",
+      "site_quote": "Patrick’s ability to connect the dots across multiple projects and deliver thoughtful, impactful results makes him an invaluable asset to any team.",
+      "site_highlight": "Patrick’s ability to connect the dots across multiple projects",
+      "linkedin_full": "I had the pleasure of managing Patrick at JDRF, where his commitment to innovation and results-driven design consistently elevated our digital tools. Patrick is not just a product designer; he is a strategic thinker, a collaborative team leader, and a reliable source of knowledge in UI/UX. His passion and innovative approach to user experience, coupled with his ability to understand and align with business goals, make him a standout in the field.\n\nPatrick's contributions went far beyond design; he was instrumental in marrying business strategy with UI/UX best practices, thereby developing supporter experiences that surpassed many of our peers. He was also pivotal in designing a user-centric information architecture, significantly improving our digital ecosystem's usability and effectiveness.\n\nAs a manager, witnessing his ability to connect across multiple projects and deliver thoughtful, impactful results was truly inspiring. His dedication and talent in creating a collaborative environment, and his knack for constantly pushing the boundaries of digital product design, make him an invaluable asset to any team.",
+      "themes": ["strategy", "business alignment", "information architecture", "leadership"]
+    },
+    {
+      "name": "Christy Haught",
+      "title_on_site": "Senior Product Manager",
+      "company": "JDRF",
+      "site_quote": "Patrick has a special talent for demonstrating the beauty of simplicity, even when faced with a multitude of requests to add more complexity.",
+      "site_highlight": "Patrick has a special talent for demonstrating the beauty of simplicity",
+      "linkedin_full": null,
+      "themes": ["simplicity", "stakeholder management"]
+    },
+    {
+      "name": "Colin Zyrek",
+      "title_on_site": "Senior Product Designer",
+      "company": null,
+      "site_quote": "I learned so much from Patrick's design process; he really made me a better designer. He also gives the best feedback on projects.",
+      "site_highlight": "he really made me a better designer.",
+      "linkedin_full": null,
+      "themes": ["mentorship", "critique"]
+    },
+    {
+      "name": "Prescott Rynewicz",
+      "title_on_site": "Engineering Manager",
+      "company": "Cameo (Cameo for Business)",
+      "current_title_linkedin": "Product Engineering Leader",
+      "relationship": "Worked on the same team",
+      "date": "2023-09-18",
+      "site_quote": "Patrick is unnaturally good at asking first-principle questions to ensure his team are on the right path. He is an incredible designer, a diligent student of product development, and a wonderful human being.",
+      "site_highlight": "Patrick is unnaturally good at asking first-principle questions",
+      "linkedin_full": "Patrick is an incredible designer, a diligent student of product development, and a wonderful human being. Building the Cameo for Business platform from the ground up with Patrick was a joy. From early user interviews and problem framing to pixel-perfect QA, Patrick was the best design partner an engineering leader could ask for.\n\nPatrick is deeply passionate about the experiences he designs but can easily detach his ego from his work to make clear and thoughtful decisions when presented with qualitative data. Patrick is unnaturally good at asking first-principle questions to ensure he and his team are on the right path. When needed, Patrick can be a perfectionist and will nerd out on design craft, but knows how to let go of low-impact tradeoffs that users will never notice.",
+      "themes": ["first principles", "eng partnership", "craft", "pragmatism", "zero-to-one"]
+    },
+    {
+      "name": "Logan Wishart-Craig",
+      "name_note": "Misspelled 'Wishart-Criag' on the current site. LinkedIn spelling is Wishart-Craig.",
+      "title_on_site": "Senior Engineer",
+      "company": "Cameo",
+      "current_title_linkedin": "Software Engineer",
+      "relationship": "Worked on the same team",
+      "date": "2024-01-25",
+      "site_quote": "Patrick’s ability to communicate designs to the engineering team was unparalleled. Patrick’s ability to think from the perspective of an engineer made translating requirements and discussing trade offs so much easier.",
+      "site_highlight": "Patrick’s ability to think from the perspective of an engineer",
+      "linkedin_full": "With an excellent eye for detail, and an appreciation for the subtleties of product flows, working with Patrick was always extremely productive. Patrick’s ability to communicate and present design documents to the engineering team was unparalleled. He consistently provided clear, concise, comprehensive, and well thought out documents, much to the delight of me and the rest of the team. Patricks ability to think from the perspective of an engineer made translating requirements and discussing trade offs so much easier.",
+      "themes": ["eng partnership", "documentation", "communication"]
+    },
+    {
+      "name": "Alexandra (Ali) Forrest",
+      "title_on_site": "Content Designer",
+      "company": "Cameo",
+      "current_title_linkedin": "human-centered content designer @ metamask | previously linktree, cameo",
+      "relationship": "Worked on the same team (early-career UX writer mentored by Patrick)",
+      "date": "2023-12-11",
+      "site_quote": "Patrick is a skilled designer who asks thoughtful questions, leads with grace, and always has valuable critique to offer. He chases excellence in all that he does and makes everyone around him better.",
+      "site_highlight": null,
+      "linkedin_full": "Working with Patrick at Cameo was such a gift. He is a skilled designer who asks thoughtful questions, leads with grace, and always has valuable critique to offer. He chases excellence in all that he does and makes everyone around him a better designer.\n\nOn top of all of that, he’s generous in his mentorship of more junior teammates. I joined the Product Design team at Cameo as an early career UX Writer. Patrick took an hour every week to discuss design thinking, share UX best practices, and provide feedback on my work. I’m so grateful I got the chance to be on his team.",
+      "themes": ["mentorship", "critique", "leadership", "excellence"]
+    }
+  ]
+}

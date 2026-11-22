@@ -1,0 +1,69 @@
+{
+  "_about": "Career history from LinkedIn (captured 2026-11-22), with extra context from patrickmckowen.com. Dates are as listed on LinkedIn. 'present' means the role is current.",
+  "roles": [
+    {
+      "company": "Linktree",
+      "employment": "Full-time",
+      "location": "San Francisco Bay Area · Hybrid",
+      "total_tenure": "Jul 2024 – present (2 yrs 5 mos)",
+      "positions": [
+        { "title": "Principal Product Designer", "start": "2026-09", "end": "present", "description": "Design lead for the core product and AI" },
+        { "title": "Staff Product Designer", "start": "2025-03", "end": "present", "description": null, "note": "LinkedIn shows this as also running to present, overlapping with Principal. Probably the end date was never updated (likely Aug 2026)." },
+        { "title": "Senior Product Designer", "start": "2024-07", "end": "2025-02", "description": null }
+      ],
+      "linkedin_about_blurb": "I'm currently a product designer at Linktree, working on tools to help people curate, grow, and monetize their digital universe.",
+      "case_studies": [],
+      "gap": "No Linktree work is on the current portfolio. This is the most recent and most senior chapter."
+    },
+    {
+      "company": "Cameo",
+      "employment": "Full-time",
+      "positions": [
+        {
+          "title": "Senior Product Designer",
+          "start": "2021-12",
+          "end": "2023-08",
+          "description": "Led design on Cameo's first B2B product Cameo for Business. I co-created the zero-to-one product strategy, helped run research, and designed the end-to-end experience for both businesses and creators. Led the Cameo Design System team."
+        }
+      ],
+      "site_description": "Most recently, I led design on a new B2B marketing platform for the unicorn startup Cameo. I also led their design system team and helped with the creator app.",
+      "linkedin_about_blurb": "Prior, I led design on Cameo for Business, a zero-to-one marketplace connecting brands with creators.",
+      "case_studies": ["cameo-licensing"],
+      "gallery_items": ["03-cameo-list-nav", "04-cameo-starcards", "06-cameo-add-to-list"]
+    },
+    {
+      "company": "JDRF International",
+      "company_note": "Type 1 diabetes research and fundraising nonprofit, founded 1970, $200M+ annual revenue. Renamed Breakthrough T1D in 2024.",
+      "employment": "Full-time",
+      "total_tenure": "Sep 2012 – Aug 2020 (8 yrs)",
+      "location": "New York City Metropolitan Area",
+      "positions": [
+        { "title": "Product Design Director", "start": "2016-03", "end": "2020-08", "location": "New York City Metropolitan Area", "description": "This was a player-coach role. I was the hands-on design lead on projects, while managing a group of product designers, product managers, and a front-end developer." },
+        { "title": "Product Design Manager", "start": "2013-09", "end": "2016-02", "location": "New York, United States", "description": null },
+        { "title": "Senior Product Designer", "start": "2012-09", "end": "2013-08", "description": null }
+      ],
+      "site_description": "Previously, I established the first design and product management teams at JDRF, a fundraising and support organization for Type 1 Diabetes. I served in a player-coach role, designing their consumer products while managing a group of designers and product managers.",
+      "case_studies": ["jdrf-fundraising", "jdrf-navigation"],
+      "gallery_items": ["05-jdrf-edit-photo"]
+    },
+    {
+      "company": "Self-Employed",
+      "employment": "Freelance",
+      "location": "San Francisco Bay Area",
+      "positions": [
+        { "title": "Designer & Developer", "start": "2010-01", "end": "2013-09", "description": null }
+      ],
+      "case_studies": []
+    }
+  ],
+  "gaps_in_timeline": [
+    { "from": "2020-09", "to": "2021-11", "note": "Between JDRF and Cameo. Nothing listed. Possibly the move from NYC to the Bay Area. Ask Patrick." },
+    { "from": "2023-09", "to": "2024-06", "note": "Between Cameo and Linktree. Nothing listed. Ask Patrick." }
+  ],
+  "education": { "linkedin": "None listed", "self_description": "Self-taught designer" },
+  "years_of_experience": {
+    "site_claims": "10 years (About section) / 10+ years (meta description)",
+    "from_linkedin": "~16–17 years counting from freelance (Jan 2010); ~14 years full-time in-house since Sep 2012",
+    "recommendation": "Update the claim. '15+ years' is accurate and safe."
+  }
+}
